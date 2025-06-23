@@ -19,14 +19,16 @@ h1 {
     margin: 20px;
 }
 
-p {
-    background-color: var(--white-color);
-    color: var(--black-color);
-}
-
 #phone-number-validator {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 20px;
+}
+
+#results-div {
+    background-color: var(--white-color);
+    color: var(--black-color);
+    width: 150px;
+    height: 20px;
 }

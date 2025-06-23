@@ -4,8 +4,9 @@ const checkButton = document.getElementById("check-btn");
 const clearButton = document.getElementById("clear-btn");
 
 checkButton.addEventListener("click", function() {
-  errorMessage();
-  isUSPhoneNumber();
+  if(!errorMessage()) {
+    isUSPhoneNumber();
+  }
 });
 
 clearButton.addEventListener("click", reset);
@@ -16,8 +17,8 @@ function reset() {
 }
 
 userInput.addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    errorMessage();
+  if (event.key === "Enter" && !errorMessage()) {
+    isUSPhoneNumber();
   }
 });
 
@@ -30,7 +31,7 @@ function errorMessage() {
 };
 
 function isUSPhoneNumber() {
-  if(/^\\(:([0-9]{3})\\)?[-.\\s]?([0-9]{3})[-.\\s]?([0-9]{4})$/.test(userInput.value)) {
+  if(/^(1\s?)?(\(?\d{3}\)?)[-.\s]?\d{3}[-.\s]?\d{4}$/.test(userInput.value)) {
     result.innerText = `Valid US number: ${userInput.value}`
   }
   else {

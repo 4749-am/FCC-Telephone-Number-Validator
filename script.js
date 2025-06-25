@@ -34,6 +34,9 @@ function isUSPhoneNumber() {
   if(/^(1\s?)?(\(?\d{3}\)?)[-.\s]?\d{3}[-.\s]?\d{4}$/.test(userInput.value)) {
     result.innerText = `Valid US number: ${userInput.value}`
   }
+  else if (userInput.value === "911" || userInput.value === "988") {
+    result.innerText = `Valid US number: ${userInput.value}`
+  }
   else {
     result.innerText = `Invalid US number: ${userInput.value}`
   }
